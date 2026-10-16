@@ -120,6 +120,8 @@ export default tseslint.config(
       '**/.agents/**',
       '**/*.d.ts',
       'pnpm-lock.yaml',
+      'test-results/**',
+      'playwright-report/**',
     ],
   },
 );

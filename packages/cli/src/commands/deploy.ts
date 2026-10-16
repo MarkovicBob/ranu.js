@@ -18,6 +18,51 @@ export async function loadVercelAdapter(
 }
 
 /**
+ * Loads the official Cloudflare deployment adapter.
+ */
+export async function loadCloudflareAdapter(
+  importer: (pkg: string) => Promise<unknown> = (pkg) => import(pkg),
+): Promise<unknown> {
+  return importer('@ranujs/adapter-cloudflare');
+}
+
+/**
+ * Loads the official Node.js deployment adapter.
+ */
+export async function loadNodeAdapter(
+  importer: (pkg: string) => Promise<unknown> = (pkg) => import(pkg),
+): Promise<unknown> {
+  return importer('@ranujs/adapter-node');
+}
+
+/**
+ * Loads the official Netlify deployment adapter.
+ */
+export async function loadNetlifyAdapter(
+  importer: (pkg: string) => Promise<unknown> = (pkg) => import(pkg),
+): Promise<unknown> {
+  return importer('@ranujs/adapter-netlify');
+}
+
+/**
+ * Loads the official Bun deployment adapter.
+ */
+export async function loadBunAdapter(
+  importer: (pkg: string) => Promise<unknown> = (pkg) => import(pkg),
+): Promise<unknown> {
+  return importer('@ranujs/adapter-bun');
+}
+
+/**
+ * Loads the official Deno deployment adapter.
+ */
+export async function loadDenoAdapter(
+  importer: (pkg: string) => Promise<unknown> = (pkg) => import(pkg),
+): Promise<unknown> {
+  return importer('@ranujs/adapter-deno');
+}
+
+/**
  * Executes the configured deployment adapter for the production project.
  *
  * @param args - Command-line options controlling output format

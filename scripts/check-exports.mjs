@@ -37,6 +37,18 @@ const publishedPackages = [
     name: '@ranujs/adapter-netlify', 
     canonicalExports: ['.'],
     technicalExports: []
+  },
+  { 
+    dir: 'adapters/bun', 
+    name: '@ranujs/adapter-bun', 
+    canonicalExports: ['.'],
+    technicalExports: []
+  },
+  { 
+    dir: 'adapters/deno', 
+    name: '@ranujs/adapter-deno', 
+    canonicalExports: ['.'],
+    technicalExports: []
   }
 ];
 

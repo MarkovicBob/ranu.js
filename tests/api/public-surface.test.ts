@@ -176,6 +176,8 @@ describe('Phase 27 — Public API Conformance & Boundary Hardening', () => {
         'adapters/cloudflare',
         'adapters/node',
         'adapters/netlify',
+        'adapters/bun',
+        'adapters/deno',
       ]);
 
       const scanDirs = ['packages', 'adapters'];
@@ -234,6 +236,8 @@ describe('Phase 27 — Public API Conformance & Boundary Hardening', () => {
       const cloudflarePkg = checkPkg('adapters/cloudflare');
       const nodePkg = checkPkg('adapters/node');
       const netlifyPkg = checkPkg('adapters/netlify');
+      const bunPkg = checkPkg('adapters/bun');
+      const denoPkg = checkPkg('adapters/deno');
 
       expect(ranuPkg?.private).toBe(false);
       expect(createRanuPkg?.private).toBe(false);
@@ -241,6 +245,8 @@ describe('Phase 27 — Public API Conformance & Boundary Hardening', () => {
       expect(cloudflarePkg?.private).toBe(false);
       expect(nodePkg?.private).toBe(false);
       expect(netlifyPkg?.private).toBe(false);
+      expect(bunPkg?.private).toBe(false);
+      expect(denoPkg?.private).toBe(false);
     });
   });
 

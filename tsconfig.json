@@ -20,6 +20,8 @@
     { "path": "./adapters/cloudflare" },
     { "path": "./adapters/node" },
     { "path": "./adapters/netlify" },
+    { "path": "./adapters/bun" },
+    { "path": "./adapters/deno" },
     { "path": "./create-ranu" }
   ]
 }
