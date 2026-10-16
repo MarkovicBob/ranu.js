@@ -13,6 +13,9 @@
     { "path": "../dev" },
     { "path": "../runtime-node" },
     { "path": "../../adapters/vercel" },
+    { "path": "../../adapters/cloudflare" },
+    { "path": "../../adapters/node" },
+    { "path": "../../adapters/netlify" },
     { "path": "../../adapters/bun" },
     { "path": "../../adapters/deno" }
   ],

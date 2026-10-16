@@ -26,14 +26,15 @@
     "@ranu/config": "workspace:*",
     "@ranu/diagnostics": "workspace:*",
     "@ranu/build": "workspace:*",
+
+    "@ranu/dev": "workspace:*",
+    "@ranu/runtime-node": "workspace:*",
     "@ranujs/adapter-vercel": "workspace:*",
     "@ranujs/adapter-cloudflare": "workspace:*",
     "@ranujs/adapter-node": "workspace:*",
     "@ranujs/adapter-netlify": "workspace:*",
     "@ranujs/adapter-bun": "workspace:*",
-    "@ranujs/adapter-deno": "workspace:*",
-    "@ranu/dev": "workspace:*",
-    "@ranu/runtime-node": "workspace:*"
+    "@ranujs/adapter-deno": "workspace:*"
   },
   "devDependencies": {
     "@types/node": "^22.20.4",

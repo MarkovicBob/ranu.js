@@ -6,6 +6,9 @@ import {
   loadBunAdapter,
   loadDenoAdapter,
   loadVercelAdapter,
+  loadCloudflareAdapter,
+  loadNodeAdapter,
+  loadNetlifyAdapter,
   runDeployCommand,
 } from '../src/commands/deploy.js';
 import { createCliLogger } from '../src/logger.js';
@@ -141,8 +144,66 @@ describe('@ranu/cli unmocked adapter deployment integration', () => {
     it('resolves real @ranujs/adapter-vercel without mocks', async () => {
       const vercelMod = await loadVercelAdapter();
       expect(vercelMod).toBeDefined();
-      const factory = vercelMod.createVercelAdapter ?? vercelMod.default;
+      const factory = (vercelMod as any).createVercelAdapter ?? (vercelMod as any).default;
       expect(typeof factory).toBe('function');
+    });
+
+    it('resolves real @ranujs/adapter-cloudflare without mocks and verifies contract', async () => {
+      const cfMod = (await loadCloudflareAdapter()) as any;
+      expect(cfMod).toBeDefined();
+      expect(typeof cfMod.createCloudflareAdapter).toBe('function');
+      expect(typeof cfMod.default).toBe('function');
+      expect(cfMod.cloudflareAdapter).toBe(cfMod.createCloudflareAdapter);
+      expect(cfMod.adapterName).toBe('cloudflare');
+      expect(cfMod.ADAPTER_API_VERSION).toBe(1);
+      expect(cfMod.CLOUDFLARE_CAPABILITIES).toEqual(
+        expect.objectContaining({
+          runtime: 'workerd',
+          ssr: true,
+          apiRoutes: true,
+          streaming: true,
+          staticFiles: true,
+        }),
+      );
+    });
+
+    it('resolves real @ranujs/adapter-node without mocks and verifies contract', async () => {
+      const nodeMod = (await loadNodeAdapter()) as any;
+      expect(nodeMod).toBeDefined();
+      expect(typeof nodeMod.createNodeAdapter).toBe('function');
+      expect(typeof nodeMod.default).toBe('function');
+      expect(nodeMod.nodeAdapter).toBe(nodeMod.createNodeAdapter);
+      expect(nodeMod.adapterName).toBe('node');
+      expect(nodeMod.ADAPTER_API_VERSION).toBe(1);
+      expect(nodeMod.NODE_CAPABILITIES).toEqual(
+        expect.objectContaining({
+          runtime: 'node',
+          ssr: true,
+          apiRoutes: true,
+          streaming: true,
+          staticFiles: true,
+          longLivedProcess: true,
+        }),
+      );
+    });
+
+    it('resolves real @ranujs/adapter-netlify without mocks and verifies contract', async () => {
+      const netlifyMod = (await loadNetlifyAdapter()) as any;
+      expect(netlifyMod).toBeDefined();
+      expect(typeof netlifyMod.createNetlifyAdapter).toBe('function');
+      expect(typeof netlifyMod.default).toBe('function');
+      expect(netlifyMod.netlifyAdapter).toBe(netlifyMod.createNetlifyAdapter);
+      expect(netlifyMod.adapterName).toBe('netlify');
+      expect(netlifyMod.ADAPTER_API_VERSION).toBe(1);
+      expect(netlifyMod.NETLIFY_CAPABILITIES).toEqual(
+        expect.objectContaining({
+          runtime: 'edge',
+          ssr: true,
+          apiRoutes: true,
+          streaming: true,
+          staticFiles: true,
+        }),
+      );
     });
   });
 
