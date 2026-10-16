@@ -112,6 +112,8 @@ export default tseslint.config(
       '**/dist/**',
       '**/.ranu/**',
       '**/.vercel/**',
+      '**/.cloudflare/**',
+      '**/.netlify/**',
       '**/.turbo/**',
       '**/coverage/**',
       '**/node_modules/**',
