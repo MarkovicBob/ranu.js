@@ -1,7 +1,6 @@
+'use client';
 import { type FormEvent, useCallback, useEffect, useRef, useState } from 'react';
 import { conversationToJson, conversationToMarkdown } from './conversation-export';
-
-export const render = 'client';
 
 interface ChatMessage {
   role: 'user' | 'assistant';
