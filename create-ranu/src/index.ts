@@ -1,4 +1,4 @@
-export const SCAFFOLDER_VERSION = '0.1.6';
+export const SCAFFOLDER_VERSION = '0.2.0';
 
 export { scaffoldProject } from './scaffold.js';
 export { validateProjectName, validateTargetDirectory } from './validator.js';
@@ -7,12 +7,14 @@ export {
   getInstallCommand,
   getRunCommand,
 } from './package-manager.js';
-export { generateTemplateFiles } from './template.js';
+export { generateTemplateFiles, type GenerateTemplateOptions } from './template.js';
 export { initGit, isGitInstalled, isInsideGitWorkTree } from './git.js';
 
 export type {
   PackageManager,
+  TemplateName,
   ScaffoldOptions,
   ScaffoldResult,
   ValidationResult,
 } from './types.js';
+

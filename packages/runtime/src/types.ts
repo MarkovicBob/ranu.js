@@ -18,6 +18,8 @@ export interface RanuRequestContext {
   readonly signal: AbortSignal;
   readonly responseCookies: string[];
   readonly depth?: number;
+  waitUntil(promise: Promise<unknown>): void;
+  readonly waitUntilPromises?: readonly Promise<unknown>[];
 }
 
 export interface MiddlewareContext {
@@ -27,7 +29,7 @@ export interface MiddlewareContext {
   readonly signal: AbortSignal;
 }
 
-export type MiddlewareHeadersInit = Headers | string[][] | Record<string, string>;
+export type MiddlewareHeadersInit = Headers | [string, string][] | Record<string, string>;
 
 export interface RuntimeConfig {
   readonly mode: RanuMode;

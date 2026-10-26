@@ -1,6 +1,6 @@
 {
   "name": "create-ranujs",
-  "version": "0.1.6",
+  "version": "0.2.0",
   "description": "Create a new Ranu.js project",
   "license": "MIT",
   "funding": [
@@ -34,14 +34,15 @@
     "build": "tsup",
     "typecheck": "tsc --noEmit",
     "test": "vitest run",
+    "test:unit": "vitest run",
     "clean": "rimraf dist"
   },
   "devDependencies": {
-    "@types/node": "^22.20.4",
+    "@types/node": "^26.6.5",
     "rimraf": "^6.0.1",
     "tsup": "^8.5.1",
     "typescript": "^5.9.3",
-    "vitest": "^4.1.11"
+    "vitest": "^5.0.4"
   },
   "publishConfig": {
     "access": "public"

@@ -47,6 +47,8 @@ export default tseslint.config(
 
       // Code quality
       'no-console': ['warn', { allow: ['warn', 'error'] }],
+      'no-useless-assignment': 'warn',
+      'preserve-caught-error': 'off',
     },
   },
   {
@@ -112,10 +114,16 @@ export default tseslint.config(
       '**/dist/**',
       '**/.ranu/**',
       '**/.vercel/**',
+      '**/.cloudflare/**',
+      '**/.netlify/**',
+      '**/.turbo/**',
       '**/coverage/**',
       '**/node_modules/**',
+      '**/.agents/**',
       '**/*.d.ts',
       'pnpm-lock.yaml',
+      'test-results/**',
+      'playwright-report/**',
     ],
   },
 );
